@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CustomFormsModule } from 'ng2-validation'
 import { UIRouter, UIRouterModule } from 'ui-router-ng2'; 
 import { HttpModule } from '@angular/http';
 import { MyUiRouterConfigService } from './shared/services/my-ui-router-config.service';
@@ -29,7 +30,8 @@ let dashboardState = { name: 'dashboard', url: '/dashboard',  component: Dashboa
     UIRouterModule.forRoot({ states: [loginState, dashboardState], useHash: true, configClass: MyUiRouterConfigService }),
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    CustomFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
