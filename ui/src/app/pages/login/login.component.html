@@ -3,13 +3,15 @@
 <div class="container">
   <form #f="ngForm" name="loginForm" novalidate>
     <div class="form-group row" [ngClass]="{ 'has-danger': !(userEmail.valid || (userEmail.pristine && !f.submitted))}">
-      <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-      <div class="col-sm-10" >
+
+      <div class="col-sm-10">
         <!--Refrence variable name should not be same as variable defined in Component
           Ref:  http://4dev.tech/2016/09/angular2-error-cannot-assign-to-a-reference-or-variable-zone-root-task-promise-then-value-error-cannot-assign-to-a-reference-or-variable/
         -->
-        <input type="text" required email #userEmail="ngModel" name="useremail" [(ngModel)]="useremail" class="form-control" id="inputEmail3"
-          placeholder="Email">
+        <div class="input-group margin-bottom-sm">
+          <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+          <input class="form-control" type="text" required email #userEmail="ngModel" name="useremail" [(ngModel)]="useremail" placeholder="Email address">
+        </div>
         <div *ngIf="!userEmail.pristine">
           <small class="form-text form-control-feedback" *ngIf="userEmail.errors?.email">Email is not valid</small>
           <small class="form-text form-control-feedback" *ngIf="userEmail.errors?.required">Email is required</small>
@@ -17,18 +19,22 @@
       </div>
     </div>
     <div class="form-group row" [ngClass]="{ 'has-danger': !(userPassword.valid || (userPassword.pristine && !f.submitted))}">
-      <label for="inputPassword3" class="col-sm-2 col-form-label" required>Password</label>
       <div class="col-sm-10">
-        <input type="password" #userPassword="ngModel" required name="userpassword" [(ngModel)]="userpassword" class="form-control" id="inputPassword3"
-          placeholder="Password">
-           <div *ngIf="!userPassword.pristine"> 
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+          <input class="form-control" type="password" #userPassword="ngModel" required name="userpassword" [(ngModel)]="userpassword"
+            placeholder="Password">
+        </div>
+        <div *ngIf="!userPassword.pristine">
           <small class="form-text form-control-feedback" *ngIf="userPassword.errors?.required">Password is required</small>
         </div>
       </div>
     </div>
+
+
     <div class="form-group row">
       <div class="offset-sm-2 col-sm-10">
-        <button type="submit" (click)="login(f.value, f.valid)" [disabled]="!f.valid"  class="btn btn-primary">Sign in</button>
+        <button type="submit" (click)="login(f.value, f.valid)" [disabled]="!f.valid" class="btn btn-primary">Sign in</button>
       </div>
     </div>
   </form>
