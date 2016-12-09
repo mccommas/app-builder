@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+html, body {
+  font-family: "museo_sans300", sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  height: 100% !important;
+  background-color: #ffffff;
+  font-weight: 100;
+  font-style: normal;
+  background-image: url('assets/img/Lego_dublo_art.png');
+  background-size:     cover;                      /* <------ */
+  background-repeat:   no-repeat;
+  background-position: center center;
